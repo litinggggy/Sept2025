@@ -1,0 +1,168 @@
+<html>
+<head><title>Form -Text Input</title>
+<link rel=icon href=doraemon.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f5;
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  height:100%
+  border-collapse: collapse;
+  margin:40px auto;
+}
+caption {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.left {
+    background-color: #2f4f6f;   
+    color: white;
+    padding: 15px;
+    width: 35%;
+}
+
+.right {
+    background-color: #c7e8ed;   
+    padding: 15px;
+}
+
+textarea,
+select {
+    width: 90%;
+    padding: 6px;
+    background-color: #e4f7f7;   
+    border: 1px solid #7bb6b8;
+}
+
+.radio-area,
+.checkbox-area {
+    background-color: #b6e3e6;
+}
+
+    padding: 10px 20px;
+    margin: 15px 5px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+</style>
+
+<script>
+function validateForm(){
+//to validate text-do not allow empty
+let x=document.MyFirstForm.fname.value;
+if(x==""){
+    alert("Please provide your First Name!");
+  return false;
+ }
+
+//to validate text- only allow alphabet characters
+let y= document.MyFirstForm.Iname.value;
+var letters=/^[A-Za-z0]+$/;
+if(!y.match(letters))
+{
+ alert("Please input alphabet characters for Last Name.");
+ return false;
+ }
+//to validate radio button - must select
+if((MyFirstForm.gender[0].checked==false)&&(MyFirstForm.gender[1].checked==false))
+{
+alert("Please choose Gender:Male or Female");
+return False;
+ }
+}
+</script>
+
+</head>
+<body topmargin=50>
+<center>
+<form name=MyFirstForm onsubmit="return validateForm()">
+<p style="background-color:powderblue;
+color:#696969; font-family:verdana;
+font-size:160%;
+text-align:center;
+width:60%;height:100%">
+
+<table>
+<caption style="margin-top:20px;">Personal details:<br><br></caption>
+
+<tr>
+<td class="left">First name:</td>
+<td class="right"><input type=text name=fname size=50 maxlength=10></td>
+</tr>
+
+<tr>
+<td class="left">Last name:</td>
+<td class="right"><input type=text name=Iname placeholder='Last name' autofocus></td>
+</tr>
+
+<tr>
+<td class="left">Gender:</td>
+<td class="right">
+<input type=radio name=gender value=Male>Male
+<input type=radio name=gender value=Female>Female
+</td>
+</tr>
+
+<tr>
+<td class="left">Choose your favorite subjects:</td>
+<td class="right">
+<input type=checkbox name=fav_sub value=DCS4103 checked>DCS4103
+<input type=checkbox name=fav_sub value=DCS3003 disabled>DCS3003
+<input type=checkbox name=fav_sub value=DCS1003>DCS1003
+<input type=checkbox name=fav_sub value=DCS2003>DCS2003
+</td>
+</tr>
+
+<tr>
+<td class="left">Address:</td>
+<td class="right">
+<textarea rows=4 cols=30 name=address></textarea>
+</td>
+</tr>
+
+<tr>
+<td class="left">Date of birth:</td>
+<td class="right">
+<input type=date name=dob min=2000-01-01 max=2005-12-31>
+</td>
+</tr>
+
+<tr>
+<td class="left">Login password:</td>
+<td class="right">
+<input type=password name=loginpass minlength=4 maxlength=4>
+</td>
+</tr>
+
+<tr>
+<td class="left">Course:</td>
+<td class="right">
+<select>
+<option value='0'>-List of Course-</option>
+
+<optgroup label='Diploma in Computer Science'>
+<option>Semester1</option>
+<option>Semester2</option>
+<option>Semester3</option>
+<option>Semester4</option>
+<option>Semester5</option>
+<option>Semester6</option>
+</optgroup>
+
+<option value='DIB'>Diploma in Business</option>
+<option value='DAS'>Diploma in Airline Service</option>
+</select>
+</td>
+</tr>
+
+</table>

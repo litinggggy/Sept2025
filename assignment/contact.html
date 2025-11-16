@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact | School of Computing</title>
+  <link rel="icon" href="school.png" type="image/jpg">
+<link rel="stylesheet" href="soc.css">
+
+</head>
+<body>
+
+<header>
+<div class="header-content">
+<img src="school.png" class="logo" alt="School Logo">
+<h1><a name="point_here">Contact Us</a></h1>
+</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="programmes.html">Programmes</a></li>
+<li><a href="projects.html">Student Projects</a></li>
+<li><a href="admission.html">Admission</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <p class="contact-desc">Have questions about admission, programmes, or general inquiries? Fill in the form below and our team will contact you shortly.</p>
+
+  <form class="contact-form" name="contactForm" onsubmit="return validateForm()">
+
+
+    <h3 class="sub-title">Personal Information</h3>
+    <table>
+      <tr>
+        <td>Full Name:</td>
+        <td><input type="text" name="fullname" placeholder="Your full name" required></td>
+      </tr>
+
+      <tr>
+        <td>IC / Passport:</td>
+        <td><input type="text" name="ic" placeholder="e.g. 020519-10-XXXX"></td>
+      </tr>
+
+      <tr>
+        <td>Date of Birth:</td>
+        <td><input type="date" name="dob"></td>
+      </tr>
+
+      <tr>
+        <td>Gender:</td>
+        <td>
+          <input type="radio" name="gender" value="Male"> Male
+          <input type="radio" name="gender" value="Female"> Female
+        </td>
+      </tr>
+    </table>
+
+    <!-- Contact Details -->
+    <h3 class="sub-title">Contact Details</h3>
+    <table>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email" placeholder="example@mail.com" required></td>
+      </tr>
+
+      <tr>
+        <td>Phone Number:</td>
+        <td><input type="text" name="phone" placeholder="012-3456789" required></td>
+      </tr>
+
+      <tr>
+        <td>Address:</td>
+        <td><textarea name="address" rows="3" placeholder="Your home address"></textarea></td>
+      </tr>
+    </table>
+
+   
+    <h3 class="sub-title">Inquiry Details</h3>
+    <table>
+      <tr>
+        <td>Inquiry Type:</td>
+        <td>
+          <select name="inquiry" required>
+            <option value="">-- Select --</option>
+            <option value="Admission">Admission</option>
+            <option value="Programme Info">Programme Information</option>
+            <option value="Fee Structure">Fee Structure</option>
+            <option value="Campus Visit">Campus Visit</option>
+            <option value="Scholarship">Scholarship</option>
+            <option value="Other">Other</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Programme Interested:</td>
+        <td>
+          <select name="programme">
+            <option value="">-- Select Programme --</option>
+            <option>Diploma in Computer Science</option>
+            <option>Diploma in Business</option>
+            <option>Diploma in Accounting</option>
+            <option>Foundation in IT</option>
+            <option>Other</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Upload Document:</td>
+        <td><input type="file" name="file"></td>
+      </tr>
+    </table>
+
+    <div class="btn-row">
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </div>
+
+  </form>
+</section>
+
+<section class="school-info">
+  <h2>Campus Contact Information</h2>
+  <p><strong>Address:</strong> School of Computing, ABC University, Kuala Lumpur, Malaysia</p>
+  <p><strong>Phone:</strong> 03-12345678</p>
+  <p><strong>Email:</strong> soc@abcuniversity.edu.my</p>
+  <p><strong>Office Hours:</strong> Monday - Friday | 9.00 AM - 5.00 PM</p>
+</section>
+
+<script>
+function validateForm() {
+  let name = document.forms["contactForm"]["fullname"].value;
+  let email = document.forms["contactForm"]["email"].value;
+  let phone = document.forms["contactForm"]["phone"].value;
+
+  if(name.trim() === "") {
+    alert("Full Name is required.");
+    return false;
+  }
+
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  let phonePattern = /^[0-9]{10,}$/;
+  if(!phonePattern.test(phone)) {
+    alert("Phone number must be at least 10 digits and only numbers.");
+    return false;
+  }
+
+  return true;
+}
+</script>
+
+
+</main>
+
+
+
+
+<footer>
+<p>DCS2509294 Design by Wan Li Ting</p>
+</footer>
+<p align=center><a href="#point_here">Back to TOP</a></p>
+</body>
+</html>

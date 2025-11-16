@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Programmes | School of Computing</title>
+<link rel="icon" href="school.png" type="image/png">
+<link rel="stylesheet" href="soc.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+  <img src="school.png" class="logo" alt="School Logo">
+  <h1><a name="point_here">Programmes</a></h1>
+</div>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="programmes.html" class="active">Programmes</a></li>
+    <li><a href="projects.html">Student Projects</a></li>
+    <li><a href="admission.html">Admission</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<!-- Video Section -->
+<section class="programme-video">
+  <video autoplay muted loop playsinline class="about-video">
+      <source src="programmes.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="video-title">
+    <h1>Explore Our Programmes</h1>
+    <p>Your journey in the world of technology begins here.</p>
+  </div>
+</section>
+
+<!-- Programmes Section -->
+<section class="programmes">
+  <h2>Our Programmes</h2>
+  <div class="underline"></div>
+  <div class="cards">
+
+    <div class="card">
+      <img src="diploma.jpg" alt="Diploma" class="card-img">
+      <h3>Diploma in Computer Science</h3>
+      <p>Learn programming, networking, cybersecurity, databases and system fundamentals.</p>
+      <button class="btn-toggle">Learn More</button>
+      <div class="extra-info">
+         <p>This programme includes Python, Java, Web Development, Networking, and Cybersecurity. Hands-on projects & internships included.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="certificate.jpg" alt="Certificate" class="card-img">
+      <h3>Certificate in IT</h3>
+      <p>Beginner-friendly programme providing strong IT foundation skills.</p>
+      <button class="btn-toggle">Learn More</button>
+      <div class="extra-info">
+        <p>Learn basic IT skills including MS Office, programming, and networking. Perfect for beginners.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="shortcourse.jpg" alt="Short Courses" class="card-img">
+      <h3>Short Courses</h3>
+      <p>Workshops covering AI, web development, cybersecurity, UI/UX and more.</p>
+      <button class="btn-toggle">Learn More</button>
+      <div class="extra-info">
+        <p>Flexible, hands-on courses to explore AI, UI/UX, web development, and cybersecurity.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="degree.jpg" alt="Degree" class="card-img">
+      <h3>Degree Pathway</h3>
+      <p>Continue your studies with partner universities for Computer Science degrees.</p>
+      <button class="btn-toggle">Learn More</button>
+      <div class="extra-info">
+        <p>Transfer credits to partner universities and pursue a full Computer Science degree.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>DCS2509294 Design by Wan Li Ting</p>
+</footer>
+
+<!-- Script for Learn More toggle -->
+<script>
+const buttons = document.querySelectorAll('.btn-toggle');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const extraInfo = button.nextElementSibling; 
+    if (extraInfo.style.display === "block") {
+      extraInfo.style.display = "none";
+      button.textContent = "Learn More";
+    } else {
+      extraInfo.style.display = "block";
+      button.textContent = "Show Less";
+    }
+  });
+});
+</script>
+<p align=center><a href="#point_here">Back to TOP</a></p>
+</body>
+</html>

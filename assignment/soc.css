@@ -91,6 +91,19 @@ main {
   background: rgba(0,0,0,0.4);
   z-index: 0;
 }
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-text { font-size: 1.8rem; padding: 20px; }
+  .cards { flex-direction: column; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  nav ul { flex-direction: column; }
+  .hero-text { font-size: 1.5rem; padding: 15px; }
+  .cards .card { width: 100%; }
+  .about-columns div { width: 100%; margin-bottom: 15px; }
+}
 
 .hero-text {
   position: relative;
@@ -593,3 +606,4 @@ main {
   body { font-size: 16px; max-width: 1500px; margin: auto; }
   .content { text-align: left; }
 }
+

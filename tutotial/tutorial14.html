@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Room Reservations</title>
+<style>
+
+.body {
+  font-size: 120%;
+  margin: 40px 0;
+  background: #f9f9f9;
+  font-family: Arial;
+}
+
+.container {
+  width: 1150px;
+  margin: auto;
+  padding: 10px 0 30px 0;
+  border: 3px solid black;
+  background-color: #CCFFFF;
+  text-align: center;
+}
+
+
+h2 {
+  margin: 4px 0 18px;
+}
+
+
+.table1, .table2 {
+  border-collapse: collapse;
+  border: 3px solid black;
+  width: 90%;
+  background-color: #CCFFFF;
+  margin: 25px auto;
+}
+
+th {
+  font-size: 18px;
+  padding: 8px;
+}
+
+td {
+  border: 2px solid black;
+  padding: 10px;
+  font-size: 15px;
+  background-color: #CCFFFF;
+}
+
+
+td:first-child,
+td:nth-child(3) {
+  border: 1px solid #CCFFFF !important;
+
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 95%;
+  padding: 8px;
+  border: none;
+  background-color: #CCFFFF;
+  font-size: 15px;
+}
+
+textarea {
+  border: none;
+  background-color: #CCFFFF;
+  padding: 10px;
+  width: 90%;
+  resize: none;
+}
+
+
+input[type="submit"],
+input[type="reset"] {
+  padding: 8px 18px;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 6px;
+  border: 1px solid gray;
+  background-color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #e0e0e0;
+}
+
+.table1 tr,
+.table2 tr {
+    height: 45px;       
+}
+
+.table1 td,
+.table2 td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+</style>
+
+<script>
+
+function validateForm(){
+    // Full name must not be empty
+    let x = document.MyFirstForm.fname.value;
+    if (x == ""){
+        alert("Please provide your Full Name!");
+        return false;
+    }
+
+    // IC NO must be numeric
+    let y = document.MyFirstForm.ic_no.value;
+    var numbers = /^[0-9]+$/;
+    if(!y.match(numbers)){
+        alert("Please input numbers for IC NO.");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<form name="MyFirstForm" onsubmit="return validateForm()">
+
+<h2>Room Reservations</h2>
+
+<!-- ========== PERSONAL DETAILS ========== -->
+<table class="table1">
+<tr>
+<th align="left">
+  <font color="blue"><u>Personal detail</u></font>
+  <font color="red">*</font>
+</th>
+</tr>
+
+<tr>
+<td>Full Name:</td>
+<td width="30%"><input type="text" name="fname" maxlength="20"></td>
+
+<td>IC No.:</td>
+<td width="30%"><input type="text" name="ic_no" maxlength="15"></td>
+</tr>
+
+<tr>
+<td>Email address:</td>
+<td><input type="email" name="email"></td>
+
+<td>Contact No.:</td>
+<td><input type="text" name="contact"></td>
+</tr>
+</table>
+
+
+<!-- ========== RESERVATIONS ========== -->
+<table class="table2">
+<tr>
+<th align="left">
+  <font color="blue"><u>Reservations</u></font>
+  <font color="red">*</font>
+</th>
+</tr>
+
+<tr>
+<td>Number of Room(s):</td>
+<td>
+<select name="rooms_count">
+  <option value="0">-Selection-</option>
+  <option value="1">One room</option>
+  <option value="2">Two room</option>
+  <option value="3">Three room</option>
+  <option value="4">Four room</option>
+</select>
+</td>
+
+<td>Payment Method:</td>
+<td>
+  <input type="radio" name="pay" value="Cash"> Cash
+  <input type="radio" name="pay" value="TNG"> TNG
+</td>
+</tr>
+
+<tr>
+<td>Number of Adult(s):</td>
+<td>
+<select name="adult_count">
+  <option>-Selection-</option>
+  <option value="1">One Adult</option>
+  <option value="2">Two Adult</option>
+  <option value="3">Three Adult</option>
+  <option value="4">Four Adult</option>
+</select>
+</td>
+
+<td>Do you have any special requests?</td>
+<td><textarea rows="5" name="question"></textarea></td>
+</tr>
+
+<tr>
+<td>Number of Children:</td>
+<td>
+<select name="child_count">
+  <option>-Selection-</option>
+  <option value="1">One Child</option>
+  <option value="2">Two Child</option>
+  <option value="3">Three Child</option>
+  <option value="4">Four Child</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Check-in Date:</td>
+<td><input type="date" name="checkin"></td>
+</tr>
+
+<tr>
+<td>Check-out Date:</td>
+<td><input type="date" name="checkout"></td>
+</tr>
+
+<tr>
+<td>Room Preference:</td>
+<td>
+  <input type="checkbox" name="rooms" value="Deluxe"> Deluxe
+  <input type="checkbox" name="rooms" value="Suite"> Suite
+</td>
+</tr>
+
+</table>
+
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+
+</form>
+</div>
+
+</body>
+</html>

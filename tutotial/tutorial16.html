@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><title>JavaScript</title>
+<link rel=icon href=sunflower.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+<title> Tutorial 16 Answer</title>
+
+</head><body>
+<h1> Marks Grading System </h1>
+
+<form id="marksForm">
+Examination Mark(0-100):
+<input type="number" id="examMarks"required>
+<br><br>
+Project Mark(0-100) :
+<input type="number" id="projectMarks"required>
+<br><br><br>
+<button type="button" onclick="calculateGrade()">Get Grade </button>
+
+</form>
+<br><br>
+<div id ="result"></div>
+<script>
+    function calculateGrade(){
+	const examMarks = parseFloat(document.getElementById('examMarks').value);
+	const projectMarks=parseFloat(document.getElementById('projectMarks').value);
+	const resultDiv= document.getElementById('result');
+	
+	if(examMarks<0||examMarks>100||projectMarks<0||projectMarks>100){
+	resultDiv.textContent="Marks must be between 0 and 100.";
+	resultDiv.style.color="red";
+	return;
+	}
+	if examMarks <35){
+	resultDiv.textContent="Fail:Project marks must be at least 35/100.";
+	resultDiv.style.color="red";
+	return;
+	}
+	if projectMarks <35){
+	resultDiv.textContent="Fail:Project marks must be at least 35/100.";
+	resultDiv.style.color="red";
+	return;
+	}
+	const totalMarks=(examMarks + projectMarks) /2;
+	let grade;
+	
+	if(totalMarks >= 50){
+	    grade="Pass";
+		resultDiv.style.color="green";
+	}
+	else{
+	    grade="Fail";
+		resultDiv.style.color="red";
+	}
+		resultDiv.textContent=`Total Marks:${totalMarks.toFixed(2)}/100 | Grade:${grade}`;
+}
+	
+	
+</script>
+</body></html>

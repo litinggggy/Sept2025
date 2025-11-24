@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+h2 {
+    text-align: left;
+}
+
+form {
+    background: white;
+    width: 320px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+	 text-align: left;
+   
+}
+
+
+button {
+    width: 50%;
+	text-align:center;
+    padding: 10px;
+    background:pink;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}

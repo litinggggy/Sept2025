@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Name Picker</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#f5f5f5; padding:20px; }
+  .box { background:white; padding:20px; max-width:600px; margin:auto; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.1); }
+  textarea { width:100%; height:150px; padding:10px; font-size:16px; }
+  button { padding:10px 15px; margin-right:10px; font-size:16px; cursor:pointer; }
+  #current { font-size:32px; font-weight:bold; margin-top:20px; text-align:center; }
+  #winners { margin-top:20px; font-size:20px; }
+  .winner { background:#d8ecff; padding:8px; margin:5px 0; border-radius:5px; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Name Picker</h2>
+  <p>Enter names below (one per line):</p>
+  <textarea id="names"></textarea>
+
+  <p>
+    Number of winners: 
+    <input type="number" id="count" value="3" min="1" style="width:70px;">
+  </p>
+
+  <button onclick="startRoll()">Start</button>
+  <button onclick="stopRoll()">Stop</button>
+
+  <div id="current">— ready —</div>
+
+  <div id="winners"></div>
+</div>
+
+<script>
+let timer = null;
+let list = [];
+
+function startRoll() {
+  const raw = document.getElementById("names").value.trim();
+  if (!raw) {
+    alert("Please enter some names.");
+    return;
+  }
+
+  list = raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+
+  if (list.length === 0) {
+    alert("Name list is empty.");
+    return;
+  }
+
+  // start cycling
+  timer = setInterval(() => {
+    const r = list[Math.floor(Math.random() * list.length)];
+    document.getElementById("current").textContent = r;
+  }, 80);
+}
+
+function stopRoll() {
+  if (!timer) return;
+  clearInterval(timer);
+  timer = null;
+
+  const count = parseInt(document.getElementById("count").value) || 1;
+
+  const shuffled = list.slice().sort(() => Math.random() - 0.5);
+  const winners = shuffled.slice(0, Math.min(count, list.length));
+
+  const box = document.getElementById("winners");
+  box.innerHTML = "<h3>Winners:</h3>";
+
+  winners.forEach((name, i) => {
+    const div = document.createElement("div");
+    div.className = "winner";
+    div.textContent = (i + 1) + ". " + name;
+    box.appendChild(div);
+  });
+
+  // show first winner on the big display
+  document.getElementById("current").textContent = winners[0];
+}
+</script>
+
+</body>
+</html>
